@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Url from './Url';
+import { Url } from './Url';
 
 const AddTodo = () => {
   const [todoName, setTodoName] = useState('');

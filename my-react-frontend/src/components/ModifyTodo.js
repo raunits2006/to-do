@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Url } from './Url';
 
 const UnifiedTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -11,7 +12,7 @@ const UnifiedTodos = () => {
   // Fetch all todos from the backend
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/todos');
+      const response = await axios.get(`${Url}/todos`);
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -21,7 +22,7 @@ const UnifiedTodos = () => {
   // Mark a todo as completed
   const handleComplete = async (todoId) => {
     try {
-      await axios.put('http://localhost:8000/todos/complete', {
+      await axios.put(`${Url}/todos/complete`, {
         todo_id: todoId,
       });
       // Refresh the list
@@ -34,7 +35,7 @@ const UnifiedTodos = () => {
   // Delete a todo
   const handleDelete = async (todoId) => {
     try {
-      await axios.delete('http://localhost:8000/todos/delete', {
+      await axios.delete(`${Url}/todos/delete`, {
         data: { todo_id: todoId },
       });
       // Refresh the list

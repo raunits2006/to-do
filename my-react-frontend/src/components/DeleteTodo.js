@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Url from './Url';
+import { Url } from './Url';
 
 const DeleteTodo = () => {
   const [todos, setTodos] = useState([]);
