@@ -7,8 +7,6 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-print(DATABASE_URL)
-
 database = Database(DATABASE_URL)
 metadata = MetaData()
 
