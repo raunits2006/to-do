@@ -6,3 +6,5 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends postgresql-client
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]

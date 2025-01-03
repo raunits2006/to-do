@@ -52,3 +52,8 @@ async def delete_todo(todo: UniversalTodoPayload):
     await database.execute(query)
     return {"message": "Todo deleted"}
 
+
+if __name__ == "__main__":
+    host = os.getenv("HOST", "0.0.0.0")
+    port = int(os.getenv("PORT", 10000))
+    uvicorn.run(app, host=host, port=port)
