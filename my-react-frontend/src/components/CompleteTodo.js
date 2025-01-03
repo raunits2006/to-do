@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Url from './Url';
 
 const CompleteTodo = () => {
   const [todos, setTodos] = useState([]);
@@ -10,7 +11,7 @@ const CompleteTodo = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/todos');
+      const response = await axios.get(`${Url}/todos`);
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -19,7 +20,7 @@ const CompleteTodo = () => {
 
   const handleComplete = async (todoId) => {
     try {
-      await axios.put('http://localhost:8000/todos/complete', {
+      await axios.put(`${Url}/todos/complete`, {
         todo_id: todoId,
       });
       fetchTodos();

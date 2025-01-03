@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Url from './Url';
 
 const DeleteTodo = () => {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
-    const response = await axios.get('http://localhost:8000/todos');
+    const response = await axios.get(`${Url}/todos`);
     setTodos(response.data);
   };
 
@@ -14,7 +15,7 @@ const DeleteTodo = () => {
   }, []);
 
   const handleDelete = async (todoId) => {
-    await axios.delete('http://localhost:8000/todos/delete', {
+    await axios.delete(`${Url}/todos/delete`, {
       data: { todo_id: todoId },
     });
     // Re-fetch todos to refresh the list

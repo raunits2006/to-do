@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Url from './Url';
 
 const AddTodo = () => {
   const [todoName, setTodoName] = useState('');
@@ -7,7 +8,7 @@ const AddTodo = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/todos', { todo_id: 0, todo_name: todoName });
+      await axios.post(`${Url}/todos`, { todo_id: 0, todo_name: todoName });
       setTodoName('');
       // Force page reload (simple approach)
       window.location.reload();
