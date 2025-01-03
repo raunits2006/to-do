@@ -13,8 +13,6 @@ services:
       - db
     networks:
       - app-network
-    env_file:
-      - .devcontainer/.env
 
   db:
     image: postgres:latest
