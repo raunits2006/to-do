@@ -3,9 +3,7 @@ from models import CreateTodoPayload, UniversalTodoPayload, todos
 from database import database, create_database
 from contextlib import asynccontextmanager
 from sqlalchemy import update
-from fastapi.middleware.cors import CORSMiddleware
-
-
+from starlette.middleware.cors import CORSMiddleware
 
 
 @asynccontextmanager
@@ -19,7 +17,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://to-do-front-i3j8.onrender.com/"],
+    allow_origins=["https://to-do-front-i3j8.onrender.com", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
